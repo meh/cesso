@@ -24,7 +24,7 @@ defmodule Cesso.Parser do
     rows(string) |> Stream.map &columns(&1, options(separator: separator))
   end
 
-  def rows(string) do
+  defp rows(string) do
     Stream.unfold string, fn string ->
       case string |> :binary.split ["\r\n", "\n"] do
         [""] ->
@@ -39,33 +39,36 @@ defmodule Cesso.Parser do
     end
   end
 
-  def columns("", _) do
+  defp columns("", _) do
     []
   end
 
-  def columns(line, options) do
+  defp columns(line, options) do
     columns([], line, options) |> :lists.reverse
   end
 
-  def columns(acc, line, options(separator: separator) = options) do
+  defp columns(acc, line, options(separator: separator) = options) do
     case until("", line, separator) do
       { element, "" } ->
-        [element | acc]
+        [element |> nillify | acc]
 
       { element, rest } ->
-        [element | acc] |> columns(rest, options)
+        [element |> nillify | acc] |> columns(rest, options)
     end
   end
 
-  def until(acc, "", _) do
+  defp until(acc, "", _) do
     { acc, "" }
   end
 
-  def until(acc, << separator :: 8, rest :: binary >>, separator) do
+  defp until(acc, << separator :: 8, rest :: binary >>, separator) do
     { acc, rest }
   end
 
-  def until(acc, << ch :: 8, rest :: binary >>, separator) do
+  defp until(acc, << ch :: 8, rest :: binary >>, separator) do
     << acc :: binary, ch :: 8 >> |> until(rest, separator)
   end
+
+  defp nillify(""), do: nil
+  defp nillify(v),  do: v
 end
