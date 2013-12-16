@@ -4,7 +4,7 @@ defmodule Cesso.Mixfile do
   def project do
     [ app: :cesso,
       version: "0.0.1",
-      elixir: "~> 0.11.3-dev",
+      elixir: "~> 0.11.3-dev or ~> 0.12.0",
       deps: deps ]
   end
 
