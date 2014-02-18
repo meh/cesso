@@ -15,7 +15,7 @@ defmodule Cesso do
     if options[:columns] do
       case options[:columns] do
         true ->
-          names = rows |> Enum.first
+          names = rows |> Enum.at(0)
           rows  = rows |> Stream.drop(1)
 
         names ->
