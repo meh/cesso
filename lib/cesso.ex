@@ -9,8 +9,8 @@
 defmodule Cesso do
   alias Cesso.Parser
 
-  def decode(string, options // []) do
-    rows = Parser.parse(string, options)
+  def decode(source, options \\ []) do
+    rows = Parser.parse(source, options)
 
     if options[:columns] do
       case options[:columns] do
