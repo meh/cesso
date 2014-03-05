@@ -1,6 +1,6 @@
 defmodule CessoTest do
   use ExUnit.Case
-  alias Cesso, as: C
+  alias CSV, as: C
   import Enum, only: [to_list: 1]
 
   test "decodes with columns" do

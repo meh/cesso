@@ -6,8 +6,8 @@
 #
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 
-defmodule Cesso do
-  alias Cesso.Parser
+defmodule CSV do
+  alias CSV.Parser
 
   def decode(source, options \\ []) do
     rows = Parser.parse(source, options)

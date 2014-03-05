@@ -6,7 +6,7 @@
 #
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 
-defmodule Cesso.Parser do
+defmodule CSV.Parser do
   def parse(source, options \\ [])
 
   def parse(string, options) when string |> is_binary do
