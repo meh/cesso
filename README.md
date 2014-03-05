@@ -7,7 +7,7 @@ databases.
 Examples
 --------
 
-r``elixir
+```elixir
 CSV.decode(~s<lol,wut>)
   |> IO.inspect # => [["lol", "wut"]]
 
@@ -28,6 +28,9 @@ CSV.decode(~s<a,b\nlol,wut>, columns: true)
   |> IO.inspect [[{ "a", "lol" }, { "b", "wut" }]]
 
 # otherwise you can pass the column names
-CSV.decoe(~s<lol,wut>, columns: ["a", "b"])
+CSV.decode(~s<lol,wut>, columns: ["a", "b"])
  |> IO.inspect [[{ "a", "lol" }, { "b", "wut" }]]
+
+# you can also parse a file
+CSV.decode(File.stream!("db.csv"))
 ```
