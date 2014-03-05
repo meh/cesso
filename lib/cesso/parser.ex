@@ -59,7 +59,7 @@ defmodule CSV.Parser do
     columns([], false, 0, line, line, separator) |> Enum.reverse
       |> Enum.map fn
         << ?" :: utf8, rest :: binary >> ->
-          String.slice(rest, 0 .. -2) |> String.replace "\"\"", "\""
+          String.slice(rest, 0 .. -2) |> String.replace ~S<"">, ~S<">
 
         column ->
           column
