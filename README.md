@@ -1,6 +1,5 @@
 cesso - CSV parser for Elixir
 =============================
-
 Simple library to parse CSV lazily, especially made to parse huge exported
 databases.
 
@@ -8,6 +7,8 @@ Examples
 --------
 
 ```elixir
+use Cesso
+
 CSV.decode(~s<lol,wut>)
   |> IO.inspect # => [["lol", "wut"]]
 

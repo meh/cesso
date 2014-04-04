@@ -1,6 +1,6 @@
 defmodule ParserTest do
   use ExUnit.Case
-  alias CSV.Parser, as: P
+  alias Cesso.Parser, as: P
   import Enum, only: [to_list: 1]
 
   test "parses a string" do

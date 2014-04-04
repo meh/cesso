@@ -6,7 +6,7 @@
 #
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 
-defmodule CSV.Parser do
+defmodule Cesso.Parser do
   def parse(source, options \\ [])
 
   def parse(string, options) when string |> is_binary do
@@ -56,14 +56,13 @@ defmodule CSV.Parser do
   end
 
   defp columns(line, separator) do
-    columns([], false, 0, line, line, separator) |> Enum.reverse
-      |> Enum.map fn
-        << ?" :: utf8, rest :: binary >> ->
-          String.slice(rest, 0 .. -2) |> String.replace ~S<"">, ~S<">
+    columns([], false, 0, line, line, separator) |> Enum.reverse |> Enum.map fn
+      << ?" :: utf8, rest :: binary >> ->
+        String.slice(rest, 0 .. -2) |> String.replace ~S<"">, ~S<">
 
-        column ->
-          column
-      end
+      column ->
+        column
+    end
   end
 
   defp columns(columns, _, offset, "", line, _) do

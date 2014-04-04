@@ -6,8 +6,14 @@
 #
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 
-defmodule CSV do
-  alias CSV.Parser
+defmodule Cesso do
+  defmacro __using__(_opts) do
+    quote do
+      alias Cesso, as: CSV
+    end
+  end
+
+  alias Cesso.Parser
 
   def decode(source, options \\ []) do
     rows = Parser.parse(source, options)
