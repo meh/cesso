@@ -29,7 +29,7 @@ defmodule Cesso do
       end
 
       rows = rows |> Stream.map fn columns ->
-        Enum.zip(names, columns)
+        Enum.zip(names, columns) |> Enum.into %{}
       end
     end
 

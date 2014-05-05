@@ -1,7 +1,6 @@
 defmodule CessoTest do
   use ExUnit.Case
   alias Cesso, as: C
-  import Enum, only: [to_list: 1]
 
   test "decodes with columns" do
     res = C.decode(~s<lol,wut>, columns: [:a, :b]) |> Enum.at(0)

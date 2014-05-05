@@ -23,7 +23,7 @@ defmodule Cesso.Parser do
 
   defp lines(string) do
     Stream.unfold string, fn string ->
-      case string |> String.split(["\r\n", "\n"], global: false) do
+      case string |> String.split(["\r\n", "\n"], parts: 2) do
         [""]         -> nil
         [elem, rest] -> { elem, rest }
         [elem]       -> { elem, "" }
