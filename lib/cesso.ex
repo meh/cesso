@@ -18,6 +18,12 @@ defmodule Cesso do
   def decode(source, options \\ []) do
     rows = Parser.parse(source, options)
 
+    if options[:strip] do
+      rows = rows |> Stream.map fn columns ->
+        Enum.map columns, &String.strip/1
+      end
+    end
+
     if options[:columns] do
       case options[:columns] do
         true ->
