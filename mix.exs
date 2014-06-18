@@ -3,8 +3,8 @@ defmodule Cesso.Mixfile do
 
   def project do
     [ app: :cesso,
-      version: "0.1.1",
-      elixir: "~> 0.14.0",
+      version: "0.1.2",
+      elixir: "~> 0.14.1",
       package: package,
       description: "CSV handling library for Elixir." ]
   end
