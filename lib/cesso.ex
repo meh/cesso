@@ -44,7 +44,7 @@ defmodule Cesso do
         if options[:columns] do
           as.new(columns)
         else
-          [as | columns] |> list_to_tuple
+          [as | columns] |> List.to_tuple
         end
       end
     end
