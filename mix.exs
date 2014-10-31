@@ -4,7 +4,7 @@ defmodule Cesso.Mixfile do
   def project do
     [ app: :cesso,
       version: "0.1.2",
-      elixir: "~> 0.14.1",
+      elixir: "~> 1.0",
       package: package,
       description: "CSV handling library for Elixir." ]
   end
@@ -12,6 +12,6 @@ defmodule Cesso.Mixfile do
   defp package do
     [ contributors: ["meh"],
       licenses: ["WTFPL"],
-      links: [ { "GitHub", "https://github.com/meh/cesso" } ] ]
+      links: %{"GitHub" => "https://github.com/meh/cesso"} ]
   end
 end
